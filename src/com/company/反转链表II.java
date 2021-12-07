@@ -1,6 +1,6 @@
 package com.company;
 
-//打算试试O(n)
+//打算试试O(n)  见进阶反转链表
 public class 反转链表II {
     public class ListNode {
         int val;
