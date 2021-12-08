@@ -20,19 +20,37 @@ public class 分隔链表 {
     }
 
     public static ListNode partition(ListNode head, int x) {
-        return head;
+        if (head == null || head.next == null) return head;
+        ListNode more = new ListNode(-1);
+        ListNode moreA = more;
+        ListNode less = new ListNode(-1);
+        ListNode lessA = less;
+
+        while (head != null) {
+            if (head.val < x) {
+                lessA.next = head;
+                lessA = lessA.next;
+            } else {
+                moreA.next = head;
+                moreA = moreA.next;
+            }
+            head = head.next;
+        }
+        moreA.next = null;
+        lessA.next = more.next;
+        return less.next;
     }
 
     public static void main(String[] args) {
 
         ListNode g = new ListNode(2);
-        ListNode f = new ListNode(5, g);
-        ListNode e = new ListNode(2, f);
-        ListNode d = new ListNode(0, e);
+        ListNode f = new ListNode(2);
+        ListNode e = new ListNode(5, f);
+        ListNode d = new ListNode(2, e);
         ListNode c = new ListNode(3, d);
-        ListNode b = new ListNode(4, c);
-        ListNode a = new ListNode(1, b);
-        partition(a, 3);
+        ListNode b = new ListNode(1);
+        ListNode a = new ListNode(2, b);
+        partition(a, 2);
     }
 
 }
