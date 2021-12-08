@@ -4,14 +4,14 @@ package com.company;
 public class 二叉树遍历方法 {
 
     public static class TreeNode {
-        int val;
+        Object val;
         TreeNode left;
         TreeNode right;
 
         TreeNode() {
         }
 
-        TreeNode(int val) {
+        TreeNode(Object val) {
             this.val = val;
         }
 
@@ -49,16 +49,14 @@ public class 二叉树遍历方法 {
         }
     }
 
-    public static TreeNode createBT(int[] arr, int i)
-    {
+    public static TreeNode createBT(Object[] arr, int i) {
         TreeNode root = null; // 定义根节点
-
-        if (i >= arr.length) // i >= arr.length 时,表示已经到达了根节点
+        if (i >= arr.length) { // i >= arr.length 时,表示已经到达了根节点
             return null;
-
+        }
         root = new TreeNode(arr[i]); // 根节点
-        root.left = createBT(arr, 2*i+1); // 递归建立左孩子结点
-        root.right = createBT(arr, 2*i+2); // 递归建立右孩子结点
+        root.left = createBT(arr, 2 * i + 1); // 递归建立左孩子结点
+        root.right = createBT(arr, 2 * i + 2); // 递归建立右孩子结点
 
         return root;
     }
@@ -86,7 +84,7 @@ public class 二叉树遍历方法 {
         System.out.println();
         postOrder(a);
 
-        int[] arr = {1, 2, 3, 4, 5, 6};
+        Object[] arr = {1, 2, 3, 4, 5, 6};
         TreeNode root = createBT(arr, 0);
     }
 }
