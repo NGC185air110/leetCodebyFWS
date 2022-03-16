@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class 链表的中间结点 {
     public static class ListNode {
         int val;
@@ -32,13 +35,18 @@ public class 链表的中间结点 {
     }
 
     public static void main(String[] args) {
-        int[] a = {2, 3, 4, 5};
-        ListNode hh = new ListNode(1);
+        int[] a = {1,2, 3, 4, 5};
+        ListNode hh = new ListNode();
         ListNode ee = hh;
         for (int it : a) {
             hh.next = new ListNode(it);
             hh = hh.next;
         }
-        middleNode(ee);
+
+        Map<String,String> map = new HashMap<>();
+        map.put("a","a");
+        map.put("a","b");
+
+        middleNode(ee.next);
     }
 }
